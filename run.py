@@ -19,8 +19,19 @@ def clear():
     os.system('clear')
 
 
+def battle_zone(board):
+    """
+    Create function to create game area
+    """
+    print('  C o l u m n')
+    print(' 1   2   3   4   5')
+    print(' * * * * * * * * *')
+    row_legend = 1
+    row_text = [' ', 'R', 'O', 'W', ' ']
+    for x_row, row in zip(row_text, board):
+        print(x_row, row_legend,  " | ".join(row))
+        row_legend += 1
+
+
 clear()
-print(LOGO)
-print(WIN)
-print(LOSE)
-print(DRAW)
+battle_zone(COMP_UNSEEN_GRID)
