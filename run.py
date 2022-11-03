@@ -56,7 +56,60 @@ def find_ship_location():
     pass
 
 
+def validate_location_data(input):
+    """
+    A function to validate player location input
+    """
+    pass
 
+
+def get_player_location():
+    """
+    A function to locate players ships
+    """
+    pass
+
+
+def comp_turn():
+    """
+    A function to for the computer to choose
+    """
+    pass
+
+
+def play_again():
+    """
+    A function to enable a replay
+    """
+    pass
+
+
+def main():
+    """
+    The main game function
+    """
+    pass
+
+
+def get_no_of_ships():
+    """
+    A function to choose the number of ships
+    """
+    pass
+
+
+def validate_ship_data(No_Of):
+    """
+    A function to validate player input
+    """
+    pass
+
+
+def setup():
+    """
+    A function to set game parameters
+    """
+    pass
 
 
 clear()
