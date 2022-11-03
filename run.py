@@ -19,18 +19,44 @@ def clear():
     os.system('clear')
 
 
+def introduction():
+    """
+    Description of the game and instructions
+    """
+    pass
+
+
 def battle_zone(board):
     """
     Create function to create game area
     """
-    print('  C o l u m n')
-    print(' 1   2   3   4   5')
-    print(' * * * * * * * * *')
+    print('    C o l u m n')
+    print('    1   2   3   4   5')
+    print('   * * * * * * * * *')
     row_legend = 1
     row_text = [' ', 'R', 'O', 'W', ' ']
     for x_row, row in zip(row_text, board):
         print(x_row, row_legend,  " | ".join(row))
         row_legend += 1
+
+
+def create__ships(board, NO_OF_SHIPS):
+    """
+    Function that creates the ships and
+    places them in the game area, but not in the
+    same location
+    """
+    pass
+
+
+def find_ship_location():
+    """
+    A function to locate the ships
+    """
+    pass
+
+
+
 
 
 clear()
