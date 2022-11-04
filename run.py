@@ -100,21 +100,38 @@ def get_no_of_ships():
     """
     A function to choose the number of ships
     """
-    pass
+    while True:
+        no_of_ships = input("Enter the number here of ships \
+(between 10 an 15) :\nExample: 11\n")
+        if validate_ship_data(no_of_ships):
+            print("Data is valid")
+            break
+    return no_of_ships
 
 
-def validate_ship_data(No_Of):
+def validate_ship_data(no_of_ships):
     """
     A function to validate player input
     """
-    pass
+    try:
+        no_of_ships = int(no_of_ships)
+        if no_of_ships not in range(11, 15):
+            raise ValueError(f"A number between 10 and 15 required, \
+you provided {no_of_ships}")
+    except ValueError as e_e:
+        print(f"Invalid data: {e_e}, please try again.\n")
+        return False
+    return True
 
 
 def setup():
     """
     A function to set game parameters
     """
+    clear()
     introduction()
+    ships = get_no_of_ships()
+    # NO_OF_SHIPS = int(ships)
 
 
 setup()
