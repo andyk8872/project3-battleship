@@ -31,71 +31,6 @@ def introduction():
     print('Welcome to Battleship\n')
 
 
-def battle_zone(board):
-    """
-    Create function to create game area
-    """
-    print('    C o l u m n')
-    print('    1   2   3   4   5')
-    print('   * * * * * * * * *')
-    row_legend = 1
-    row_text = [' ', 'R', 'O', 'W', ' ']
-    for x_row, row in zip(row_text, board):
-        print(x_row, row_legend,  " | ".join(row))
-        row_legend += 1
-
-
-def create__ships(board, NO_OF_SHIPS):
-    """
-    Function that creates the ships and
-    places them in the game area, but not in the
-    same location
-    """
-    pass
-
-
-def find_ship_location():
-    """
-    A function to locate the ships
-    """
-    pass
-
-
-def validate_location_data(input):
-    """
-    A function to validate player location input
-    """
-    pass
-
-
-def get_player_location():
-    """
-    A function to locate players ships
-    """
-    pass
-
-
-def comp_turn():
-    """
-    A function to for the computer to choose
-    """
-    pass
-
-
-def play_again():
-    """
-    A function to enable a replay
-    """
-    pass
-
-
-def main():
-    """
-    The main game function
-    """
-    pass
-
-
 def get_no_of_ships():
     """
     A function to choose the number of ships
@@ -124,6 +59,21 @@ you provided {no_of_ships}")
     return True
 
 
+def battle_zone(board):
+    """
+    Create function to create game area
+    """
+
+
+# def create__ships(board, NO_OF_SHIPS):
+#     """
+#     Function that creates the ships and
+#     places them in the game area, but not in the
+#     same location
+#     """
+#     pass
+
+
 def setup():
     """
     A function to set game parameters
@@ -131,7 +81,10 @@ def setup():
     clear()
     introduction()
     ships = get_no_of_ships()
-    # NO_OF_SHIPS = int(ships)
+    NO_OF_SHIPS = int(ships)
+    computer = create_ships(COMP_UNSEEN_GRID, NO_OF_SHIPS)
+    player = create_ships(PLAYER_SEEN_GRID, NO_OF_SHIPS)
+    main(player, computer)
 
 
 setup()
