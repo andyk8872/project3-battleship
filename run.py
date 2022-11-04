@@ -112,7 +112,7 @@ def validate_location_data(locate):
     try:
         locate = int(locate)
         if locate not in range(1, 6):
-            raise ValueError(f"A number: 1 - 5 required, you provided {locate}")
+            raise ValueError(f"A number: 1 - 5 required, you entered {locate}")
     except ValueError as e_e:
         print(f"Invalid data: {e_e}, please try again.\n")
         return False
@@ -161,6 +161,59 @@ def play_again():
         else:
             print("Incorrect entry, type 'Y/y' to play again or 'Q/q' to Quit")
             continue
+
+
+def main(player, computer):
+    """
+    The main game function
+    """
+    global COMP_SCORE
+    COMP_SCORE = 0
+    turns = 5
+    player_score = 0
+    while turns > 0:
+        print("\nComputer Arena\n")
+        battle_zone(COMP_SEEN_GRID)
+        battle_zone(COMP_UNSEEN_GRID)
+        print("\nPlayer Arena\n")
+        battle_zone(PLAYER_SEEN_GRID)
+        comp_turn()
+        row, column = find_ship_location()
+        if COMP_SEEN_GRID[row][column] == 'o' or \
+                COMP_SEEN_GRID[row][column] == 'X':
+            print(' You already guessed that\n')
+        elif COMP_UNSEEN_GRID[row][column] == 'X':
+            print('Congratulations you have hit a battleship\n')
+            COMP_SEEN_GRID[row][column] = 'X'
+            turns -= 1
+            player_score += 1
+            print(f"PlayerScore: {player_score}")
+            print(f"Computer Score: {COMP_SCORE}")
+        elif COMP_SEEN_GRID[row][column] == '.':
+            print('Sorry,You missed\n')
+            COMP_SEEN_GRID[row][column] = 'o'
+            turns -= 1
+            print(f"Player Score: {player_score}")
+            print(f"Comp Score: {COMP_SCORE}")
+        print("You have " + str(turns) + " turns remaining\n")
+        if turns == 0:
+            print('Game Over ')
+            if player_score == COMP_SCORE:
+                print(DRAW)
+                print(f"Player Score: {player_score}")
+                print(f"Computer Score: {COMP_SCORE}\n")
+                play_again()
+            elif player_score > COMP_SCORE:
+                print(WIN)
+                print(f"Player Score: {player_score}")
+                print(f"Computer Score: {COMP_SCORE}\n")
+                play_again()
+            elif player_score < COMP_SCORE:
+                print(LOSE)
+                print(f"PlayerScore: {player_score}")
+                print(f"Computer Score: {COMP_SCORE}\n")
+                play_again()
+            break
 
 
 def setup():
