@@ -23,7 +23,12 @@ def introduction():
     """
     Description of the game and instructions
     """
-    pass
+    print(LOGO)
+    print("*-----Intstructions-----*")
+    print("It's you againest the computer.")
+    print("Who can sink the others ships.")
+    print("First choose the number of ships for the battle.\n")
+    print('Welcome to Battleship\n')
 
 
 def battle_zone(board):
@@ -109,8 +114,7 @@ def setup():
     """
     A function to set game parameters
     """
-    pass
+    introduction()
 
 
-clear()
-battle_zone(COMP_UNSEEN_GRID)
+setup()
