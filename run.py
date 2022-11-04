@@ -65,13 +65,18 @@ def battle_zone(board):
     """
 
 
-# def create__ships(board, NO_OF_SHIPS):
-#     """
-#     Function that creates the ships and
-#     places them in the game area, but not in the
-#     same location
-#     """
-#     pass
+def create_ships(board, NO_OF_SHIPS):
+    """
+    Function that creates the ships and
+    places them in the game area, but not in the
+    same location
+    """
+    for ship in range(NO_OF_SHIPS):
+        ship_row, ship_col = randint(0, 4), randint(0, 4)
+        while board[ship_row][ship_col] == 'X':
+            ship_row, ship_col = randint(0, 4), randint(0, 4)
+        board[ship_row][ship_col] = 'X'
+    return
 
 
 def setup():
