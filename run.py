@@ -31,6 +31,20 @@ def introduction():
     print('Welcome to Battleship\n')
 
 
+def battle_zone(board):
+    """
+    Create function to create game area
+    """
+    print('    C o l u m n')
+    print('    1   2   3   4   5')
+    print('   * * * * * * * * *')
+    row_legend = 1
+    row_text = [' ', 'R', 'O', 'W', ' ']
+    for x_row, row in zip(row_text, board):
+        print(x_row, row_legend, " | ".join(row))
+        row_legend += 1
+
+
 def get_no_of_ships():
     """
     A function to choose the number of ships
@@ -59,20 +73,6 @@ you provided {no_of_ships}")
     return True
 
 
-def battle_zone(board):
-    """
-    Create function to create game area
-    """
-    print('    C o l u m n')
-    print('    1   2   3   4   5')
-    print('   * * * * * * * * *')
-    row_legend = 1
-    row_text = [' ', 'R', 'O', 'W', ' ']
-    for x_row, row in zip(row_text, board):
-        print(x_row, row_legend, " | ".join(row))
-        row_legend += 1
-
-
 def create_ships(board, NO_OF_SHIPS):
     """
     Function that creates the ships and
@@ -85,6 +85,38 @@ def create_ships(board, NO_OF_SHIPS):
             ship_row, ship_col = randint(0, 4), randint(0, 4)
         board[ship_row][ship_col] = 'X'
     return
+
+
+def find_ship_location():
+    """
+    A function to locate the ships
+    """
+    while True:
+        row = input('\nPlease enter a ship row 1 - 5 ')
+        if validate_location_data(row):
+            break
+    while True:
+        column = input('Please enter a ship column 1 - 5 ')
+        if validate_location_data(column):
+            clear()
+            print(LOGO)
+            break
+
+    return int(row) - 1, int(column) - 1
+
+
+def validate_location_data(locate):
+    """
+    A function to validate player location input
+    """
+    try:
+        locate = int(locate)
+        if locate not in range(1, 6):
+            raise ValueError(f"A number: 1 - 5 required, you provided {locate}")
+    except ValueError as e_e:
+        print(f"Invalid data: {e_e}, please try again.\n")
+        return False
+    return True
 
 
 def setup():
