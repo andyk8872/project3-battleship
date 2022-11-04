@@ -119,6 +119,28 @@ def validate_location_data(locate):
     return True
 
 
+def get_player_location():
+    """
+    A function to locate players ships
+    """
+    player_row = randint(0, 4)
+    player_column = randint(0, 4)
+    return player_row, player_column
+
+
+def comp_turn():
+    """
+    A function to for the computer to choose
+    """
+    global COMP_SCORE
+    player_row, player_column = get_player_location()
+    if PLAYER_SEEN_GRID[player_row][player_column] == 'X':
+        PLAYER_SEEN_GRID[player_row][player_column] = 'H'
+        COMP_SCORE += 1
+    else:
+        PLAYER_SEEN_GRID[player_row][player_column] = 'M'  
+
+
 def setup():
     """
     A function to set game parameters
