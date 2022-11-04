@@ -138,7 +138,29 @@ def comp_turn():
         PLAYER_SEEN_GRID[player_row][player_column] = 'H'
         COMP_SCORE += 1
     else:
-        PLAYER_SEEN_GRID[player_row][player_column] = 'M'  
+        PLAYER_SEEN_GRID[player_row][player_column] = 'M'
+
+
+def play_again():
+    """
+    A function to enable a replay
+    """
+    global COMP_SEEN_GRID, COMP_UNSEEN_GRID, PLAYER_SEEN_GRID
+    while True:
+        replay = input("Type 'y' to play again\nor 'Q' to leave: ").upper()
+        if replay == 'Q':
+            clear()
+            print('Goodbye')
+            break
+        if replay == 'Y':
+            COMP_UNSEEN_GRID = [['.'] * 5 for x in range(5)]
+            COMP_SEEN_GRID = [['.'] * 5 for x in range(5)]
+            PLAYER_SEEN_GRID = [['.'] * 5 for x in range(5)]
+            clear()
+            setup()
+        else:
+            print("Incorrect entry, type 'Y/y' to play again or 'Q/q' to Quit")
+            continue
 
 
 def setup():
