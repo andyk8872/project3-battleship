@@ -49,10 +49,11 @@ def get_no_of_ships():
     A function to choose the number of ships
     """
     while True:
-        no_of_ships = input("Enter the number here of ships \
-(between 10 an 15) :\nExample: 11\n")
+        no_of_ships = input("Enter the number here of ships"
+                            "(between 10 an 15):\nExample: 11\n")
         if validate_ship_data(no_of_ships):
             print("Data is valid")
+            clear()
             break
     return no_of_ships
 
@@ -65,9 +66,9 @@ def validate_ship_data(no_of_ships):
         no_of_ships = int(no_of_ships)
         if no_of_ships not in range(11, 15):
             raise ValueError(f"A number between 10 and 15 required, \
-you provided {no_of_ships}")
-    except ValueError as e_e:
-        print(f"Invalid data: {e_e}, please try again.\n")
+                                  you provided {no_of_ships}")
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
         return False
     return True
 
@@ -112,8 +113,8 @@ def validate_location_data(locate):
         locate = int(locate)
         if locate not in range(1, 6):
             raise ValueError(f"A number: 1 - 5 required, you entered {locate}")
-    except ValueError as e_e:
-        print(f"Invalid data: {e_e}, please try again.\n")
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
         return False
     return True
 
@@ -144,12 +145,14 @@ def play_again():
     """
     A function to enable a replay
     """
+    reset = True
     global comp_seen_grid, comp_unseen_grid, player_seen_grid
-    while True:
+    while (reset is not False):
         replay = input("Type 'y' to play again\nor 'Q' to leave: ").upper()
         if replay == 'Q':
             clear()
             print('Goodbye')
+            reset = False
             break
         if replay == 'Y':
             comp_unseen_grid = [['.'] * 5 for x in range(5)]
@@ -160,6 +163,11 @@ def play_again():
         else:
             print("Incorrect entry, type 'Y/y' to play again or 'Q/q' to Quit")
             continue
+
+
+def all_scores(player_score):
+    print(f"PlayerScore:t {player_score}")
+    print(f"Computer Scoret: {COMP_SCORE}\n")
 
 
 def main(player, computer):
@@ -196,21 +204,25 @@ def main(player, computer):
             print(f"Comp Score: {COMP_SCORE}")
         print("You have " + str(turns) + " turns remaining\n")
         if turns == 0:
+            clear()
             print('Game Over ')
             if player_score == COMP_SCORE:
                 print(DRAW)
-                print(f"Player Score: {player_score}")
-                print(f"Computer Score: {COMP_SCORE}\n")
+                all_scores(player_score)
+                # print(f"Player Score: {player_score}")
+                # print(f"Computer Score: {COMP_SCORE}\n")
                 play_again()
             elif player_score > COMP_SCORE:
                 print(WIN)
-                print(f"Player Score: {player_score}")
-                print(f"Computer Score: {COMP_SCORE}\n")
+                all_scores(player_score)
+                # print(f"Player Score: {player_score}")
+                # print(f"Computer Score: {COMP_SCORE}\n")
                 play_again()
             elif player_score < COMP_SCORE:
                 print(LOSE)
-                print(f"PlayerScore: {player_score}")
-                print(f"Computer Score: {COMP_SCORE}\n")
+                all_scores(player_score)
+                # print(f"PlayerScore: {player_score}")
+                # print(f"Computer Score: {COMP_SCORE}\n")
                 play_again()
             break
 
