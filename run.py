@@ -1,13 +1,12 @@
 '''Import python libraries'''
-from random import randint
 import os
-# import pyfiglet
+from random import randint
 from battleship_art import LOGO, WIN, LOSE, DRAW
 
 
-COMP_UNSEEN_GRID = [['.']*5 for x in range(5)]
-COMP_SEEN_GRID = [['.']*5 for x in range(5)]
-PLAYER_SEEN_GRID = [['.']*5 for x in range(5)]
+comp_unseen_grid = [['.'] * 5 for x in range(5)]
+comp_seen_grid = [['.'] * 5 for x in range(5)]
+player_seen_grid = [['.'] * 5 for x in range(5)]
 NO_OF_SHIPS = 0
 COMP_SCORE = 0
 
@@ -24,7 +23,7 @@ def introduction():
     Description of the game and instructions
     """
     print(LOGO)
-    print("*-----Intstructions-----*")
+    print("*-----Instructions-----*")
     print("It's you againest the computer.")
     print("Who can sink the others ships.")
     print("First choose the number of ships for the battle.\n")
@@ -134,18 +133,18 @@ def comp_turn():
     """
     global COMP_SCORE
     player_row, player_column = get_player_location()
-    if PLAYER_SEEN_GRID[player_row][player_column] == 'X':
-        PLAYER_SEEN_GRID[player_row][player_column] = 'H'
+    if player_seen_grid[player_row][player_column] == 'X':
+        player_seen_grid[player_row][player_column] = 'H'
         COMP_SCORE += 1
     else:
-        PLAYER_SEEN_GRID[player_row][player_column] = 'M'
+        player_seen_grid[player_row][player_column] = 'M'
 
 
 def play_again():
     """
     A function to enable a replay
     """
-    global COMP_SEEN_GRID, COMP_UNSEEN_GRID, PLAYER_SEEN_GRID
+    global comp_seen_grid, comp_unseen_grid, player_seen_grid
     while True:
         replay = input("Type 'y' to play again\nor 'Q' to leave: ").upper()
         if replay == 'Q':
@@ -153,9 +152,9 @@ def play_again():
             print('Goodbye')
             break
         if replay == 'Y':
-            COMP_UNSEEN_GRID = [['.'] * 5 for x in range(5)]
-            COMP_SEEN_GRID = [['.'] * 5 for x in range(5)]
-            PLAYER_SEEN_GRID = [['.'] * 5 for x in range(5)]
+            comp_unseen_grid = [['.'] * 5 for x in range(5)]
+            comp_seen_grid = [['.'] * 5 for x in range(5)]
+            player_seen_grid = [['.'] * 5 for x in range(5)]
             clear()
             setup()
         else:
@@ -173,25 +172,25 @@ def main(player, computer):
     player_score = 0
     while turns > 0:
         print("\nComputer Arena\n")
-        battle_zone(COMP_SEEN_GRID)
-        battle_zone(COMP_UNSEEN_GRID)
+        battle_zone(comp_seen_grid)
+        # battle_zone(comp_unseen_grid)
         print("\nPlayer Arena\n")
-        battle_zone(PLAYER_SEEN_GRID)
+        battle_zone(player_seen_grid)
         comp_turn()
         row, column = find_ship_location()
-        if COMP_SEEN_GRID[row][column] == 'o' or \
-                COMP_SEEN_GRID[row][column] == 'X':
+        if comp_seen_grid[row][column] == 'o' or \
+                comp_seen_grid[row][column] == 'X':
             print(' You already guessed that\n')
-        elif COMP_UNSEEN_GRID[row][column] == 'X':
+        elif comp_unseen_grid[row][column] == 'X':
             print('Congratulations you have hit a battleship\n')
-            COMP_SEEN_GRID[row][column] = 'X'
+            comp_seen_grid[row][column] = 'X'
             turns -= 1
             player_score += 1
             print(f"PlayerScore: {player_score}")
             print(f"Computer Score: {COMP_SCORE}")
-        elif COMP_SEEN_GRID[row][column] == '.':
+        elif comp_seen_grid[row][column] == '.':
             print('Sorry,You missed\n')
-            COMP_SEEN_GRID[row][column] = 'o'
+            comp_seen_grid[row][column] = 'o'
             turns -= 1
             print(f"Player Score: {player_score}")
             print(f"Comp Score: {COMP_SCORE}")
@@ -224,8 +223,8 @@ def setup():
     introduction()
     ships = get_no_of_ships()
     NO_OF_SHIPS = int(ships)
-    computer = create_ships(COMP_UNSEEN_GRID, NO_OF_SHIPS)
-    player = create_ships(PLAYER_SEEN_GRID, NO_OF_SHIPS)
+    computer = create_ships(comp_unseen_grid, NO_OF_SHIPS)
+    player = create_ships(player_seen_grid, NO_OF_SHIPS)
     main(player, computer)
 
 
