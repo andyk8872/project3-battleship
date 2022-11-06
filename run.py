@@ -1,5 +1,6 @@
 '''Import python libraries'''
 import os
+import time
 from random import randint
 from battleship_art import LOGO, WIN, LOSE, DRAW
 
@@ -68,6 +69,7 @@ def validate_ship_data(no_of_ships):
             raise ValueError(f"A number between 10 and 15 required, \
                                   you provided {no_of_ships}")
     except ValueError as e:
+        clear()
         print(f"Invalid data: {e}, please try again.\n")
         return False
     return True
@@ -98,8 +100,7 @@ def find_ship_location():
     while True:
         column = input('Please enter a ship column 1 - 5 ')
         if validate_location_data(column):
-            clear()
-            print(LOGO)
+            clear()            
             break
 
     return int(row) - 1, int(column) - 1
@@ -115,6 +116,7 @@ def validate_location_data(locate):
             raise ValueError(f"A number: 1 - 5 required, you entered {locate}")
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.\n")
+        clear()
         return False
     return True
 
@@ -166,8 +168,8 @@ def play_again():
 
 
 def all_scores(player_score):
-    print(f"PlayerScore:t {player_score}")
-    print(f"Computer Scoret: {COMP_SCORE}\n")
+    print(f"PlayerScore: {player_score}")
+    print(f"Computer Scoreq: {COMP_SCORE}\n")
 
 
 def main(player, computer):
@@ -203,26 +205,23 @@ def main(player, computer):
             print(f"Player Score: {player_score}")
             print(f"Comp Score: {COMP_SCORE}")
         print("You have " + str(turns) + " turns remaining\n")
+        print("Game will continue in 3 secs")
+        time.sleep(3)
+        clear()
         if turns == 0:
             clear()
             print('Game Over ')
             if player_score == COMP_SCORE:
                 print(DRAW)
-                all_scores(player_score)
-                # print(f"Player Score: {player_score}")
-                # print(f"Computer Score: {COMP_SCORE}\n")
+                all_scores(player_score)                
                 play_again()
             elif player_score > COMP_SCORE:
                 print(WIN)
-                all_scores(player_score)
-                # print(f"Player Score: {player_score}")
-                # print(f"Computer Score: {COMP_SCORE}\n")
+                all_scores(player_score)              
                 play_again()
             elif player_score < COMP_SCORE:
                 print(LOSE)
-                all_scores(player_score)
-                # print(f"PlayerScore: {player_score}")
-                # print(f"Computer Score: {COMP_SCORE}\n")
+                all_scores(player_score)              
                 play_again()
             break
 
