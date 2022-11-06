@@ -37,7 +37,7 @@ def introduction():
     print_slow(LOGO)
     print_slow("*-----Instructions-----*\n")
     print_slow("It's you againest the computer.\n")
-    print_slow("Who can sink the others ships.\n")
+    print_slow("Who can sink the most ships.\n")
     print_slow("First choose the number of ships for the battle.\n\n")
 
 
@@ -60,7 +60,7 @@ def get_no_of_ships():
     A function to choose the number of ships
     """
     while True:
-        no_of_ships = input("Enter the number here of ships"
+        no_of_ships = input("Enter the number of ships "
                             "(between 10 an 15):\nExample: 11\n")
         if validate_ship_data(no_of_ships):
             print("Data is valid")
