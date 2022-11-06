@@ -1,5 +1,6 @@
 '''Import python libraries'''
 import os
+import sys
 import time
 from random import randint
 from battleship_art import LOGO, WIN, LOSE, DRAW
@@ -8,8 +9,8 @@ from battleship_art import LOGO, WIN, LOSE, DRAW
 comp_unseen_grid = [['.'] * 5 for x in range(5)]
 comp_seen_grid = [['.'] * 5 for x in range(5)]
 player_seen_grid = [['.'] * 5 for x in range(5)]
-NO_OF_SHIPS = 0
-COMP_SCORE = 0
+many_ships = 0
+comp_score = 0
 
 
 def clear():
@@ -19,16 +20,25 @@ def clear():
     os.system('clear')
 
 
+def print_slow(string):
+    """
+    A function to print like a typewriter
+    """
+    for char in string:
+        time.sleep(.01)
+        sys.stdout.write(char)
+        sys.stdout.flush()
+
+
 def introduction():
     """
     Description of the game and instructions
     """
-    print(LOGO)
-    print("*-----Instructions-----*")
-    print("It's you againest the computer.")
-    print("Who can sink the others ships.")
-    print("First choose the number of ships for the battle.\n")
-    print('Welcome to Battleship\n')
+    print_slow(LOGO)
+    print_slow("*-----Instructions-----*\n")
+    print_slow("It's you againest the computer.\n")
+    print_slow("Who can sink the others ships.\n")
+    print_slow("First choose the number of ships for the battle.\n\n")
 
 
 def battle_zone(board):
@@ -75,13 +85,13 @@ def validate_ship_data(no_of_ships):
     return True
 
 
-def create_ships(board, NO_OF_SHIPS):
+def create_ships(board, many_ships):
     """
     Function that creates the ships and
     places them in the game area, but not in the
     same location
     """
-    for ship in range(NO_OF_SHIPS):
+    for ship in range(many_ships):
         ship_row, ship_col = randint(0, 4), randint(0, 4)
         while board[ship_row][ship_col] == 'X':
             ship_row, ship_col = randint(0, 4), randint(0, 4)
@@ -94,13 +104,13 @@ def find_ship_location():
     A function to locate the ships
     """
     while True:
-        row = input('\nPlease enter a ship row 1 - 5 ')
+        row = input("Please enter a ship row 1 - 5:\n")
         if validate_location_data(row):
             break
     while True:
-        column = input('Please enter a ship column 1 - 5 ')
+        column = input("Please enter a ship column 1 - 5\n")
         if validate_location_data(column):
-            clear()            
+            clear()
             break
 
     return int(row) - 1, int(column) - 1
@@ -115,8 +125,8 @@ def validate_location_data(locate):
         if locate not in range(1, 6):
             raise ValueError(f"A number: 1 - 5 required, you entered {locate}")
     except ValueError as e:
-        print(f"Invalid data: {e}, please try again.\n")
         clear()
+        print(f"Invalid data: {e}, please try again.\n")
         return False
     return True
 
@@ -134,11 +144,11 @@ def comp_turn():
     """
     A function to for the computer to choose
     """
-    global COMP_SCORE
+    global comp_score
     player_row, player_column = get_player_location()
     if player_seen_grid[player_row][player_column] == 'X':
         player_seen_grid[player_row][player_column] = 'H'
-        COMP_SCORE += 1
+        comp_score += 1
     else:
         player_seen_grid[player_row][player_column] = 'M'
 
@@ -150,7 +160,7 @@ def play_again():
     reset = True
     global comp_seen_grid, comp_unseen_grid, player_seen_grid
     while (reset is not False):
-        replay = input("Type 'y' to play again\nor 'Q' to leave: ").upper()
+        replay = input("Type 'Y' to play again\nor 'Q' to leave:\n").upper()
         if replay == 'Q':
             clear()
             print('Goodbye')
@@ -169,21 +179,20 @@ def play_again():
 
 def all_scores(player_score):
     print(f"PlayerScore: {player_score}")
-    print(f"Computer Scoreq: {COMP_SCORE}\n")
+    print(f"Computer Score: {comp_score}\n")
 
 
 def main(player, computer):
     """
     The main game function
     """
-    global COMP_SCORE
-    COMP_SCORE = 0
+    global comp_score
+    comp_score = 0
     turns = 5
     player_score = 0
     while turns > 0:
         print("\nComputer Arena\n")
         battle_zone(comp_seen_grid)
-        # battle_zone(comp_unseen_grid)
         print("\nPlayer Arena\n")
         battle_zone(player_seen_grid)
         comp_turn()
@@ -197,31 +206,31 @@ def main(player, computer):
             turns -= 1
             player_score += 1
             print(f"PlayerScore: {player_score}")
-            print(f"Computer Score: {COMP_SCORE}")
+            print(f"Computer Score: {comp_score}")
         elif comp_seen_grid[row][column] == '.':
             print('Sorry,You missed\n')
             comp_seen_grid[row][column] = 'o'
             turns -= 1
             print(f"Player Score: {player_score}")
-            print(f"Comp Score: {COMP_SCORE}")
+            print(f"Comp Score: {comp_score}")
         print("You have " + str(turns) + " turns remaining\n")
-        print("Game will continue in 3 secs")
+        print("Waiting 3 seconds before continuing")
         time.sleep(3)
         clear()
         if turns == 0:
             clear()
             print('Game Over ')
-            if player_score == COMP_SCORE:
-                print(DRAW)
-                all_scores(player_score)                
+            if player_score == comp_score:
+                print_slow(DRAW)
+                all_scores(player_score)
                 play_again()
-            elif player_score > COMP_SCORE:
-                print(WIN)
-                all_scores(player_score)              
+            elif player_score > comp_score:
+                print_slow(WIN)
+                all_scores(player_score)
                 play_again()
-            elif player_score < COMP_SCORE:
-                print(LOSE)
-                all_scores(player_score)              
+            elif player_score < comp_score:
+                print_slow(LOSE)
+                all_scores(player_score)
                 play_again()
             break
 
@@ -233,9 +242,9 @@ def setup():
     clear()
     introduction()
     ships = get_no_of_ships()
-    NO_OF_SHIPS = int(ships)
-    computer = create_ships(comp_unseen_grid, NO_OF_SHIPS)
-    player = create_ships(player_seen_grid, NO_OF_SHIPS)
+    many_ships = int(ships)
+    computer = create_ships(comp_unseen_grid, many_ships)
+    player = create_ships(player_seen_grid, many_ships)
     main(player, computer)
 
 
