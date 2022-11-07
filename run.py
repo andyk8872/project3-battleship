@@ -111,6 +111,7 @@ def find_ship_location():
         column = input("Please enter a ship column 1 - 5\n")
         if validate_location_data(column):
             clear()
+            clear()
             break
 
     return int(row) - 1, int(column) - 1
