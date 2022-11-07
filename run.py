@@ -189,7 +189,7 @@ def main(player, computer):
     player_score = 0
     while turns > 0:
         print("\nYou have " + str(turns) + " turns remaining\n")
-        print("Computer Arena\n")
+        # print("Computer Arena\n")
         battle_zone(comp_seen_grid)
         print("\nPlayer Arena\n")
         battle_zone(player_seen_grid)
