@@ -157,24 +157,21 @@ def play_again():
     """
     A function to enable a replay
     """
-    reset = True
     global comp_seen_grid, comp_unseen_grid, player_seen_grid
-    while (reset is not False):
+    while True:
         replay = input("Type 'Y' to play again\nor 'Q' to leave:\n").upper()
-        if replay == 'Q':
-            clear()
-            print('Goodbye')
-            reset = False
-            break
         if replay == 'Y':
             comp_unseen_grid = [['.'] * 5 for x in range(5)]
             comp_seen_grid = [['.'] * 5 for x in range(5)]
             player_seen_grid = [['.'] * 5 for x in range(5)]
             clear()
             setup()
+        if replay == 'Q':
+            clear()
+            print('Goodbye')
+            break
         else:
             print("Incorrect entry, type 'Y/y' to play again or 'Q/q' to Quit")
-            continue
 
 
 def all_scores(player_score):
