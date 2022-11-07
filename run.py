@@ -197,7 +197,7 @@ def main(player, computer):
         battle_zone(player_seen_grid)
         comp_turn()
         row, column = find_ship_location()
-        if comp_seen_grid[row][column] == 'o' or \
+        if comp_seen_grid[row][column] == 'M' or \
                 comp_seen_grid[row][column] == 'X':
             print(' You already guessed that\n')
         elif comp_unseen_grid[row][column] == 'X':
@@ -209,7 +209,7 @@ def main(player, computer):
             print(f"Computer Score: {comp_score}")
         elif comp_seen_grid[row][column] == '.':
             print('Sorry,You missed\n')
-            comp_seen_grid[row][column] = 'o'
+            comp_seen_grid[row][column] = 'M'
             turns -= 1
             print(f"Player Score: {player_score}")
             print(f"Comp Score: {comp_score}")
