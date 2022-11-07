@@ -191,7 +191,8 @@ def main(player, computer):
     turns = 5
     player_score = 0
     while turns > 0:
-        print("\nComputer Arena\n")
+        print("You have " + str(turns) + " turns remaining\n")
+        print("Computer Arena\n")
         battle_zone(comp_seen_grid)
         print("\nPlayer Arena\n")
         battle_zone(player_seen_grid)
@@ -199,7 +200,7 @@ def main(player, computer):
         row, column = find_ship_location()
         if comp_seen_grid[row][column] == 'M' or \
                 comp_seen_grid[row][column] == 'X':
-            print(' You already guessed that\n')
+            print("You already guessed that\n")
         elif comp_unseen_grid[row][column] == 'X':
             print('Congratulations you have hit a battleship\n')
             comp_seen_grid[row][column] = 'X'
