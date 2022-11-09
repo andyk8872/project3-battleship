@@ -116,6 +116,16 @@ The live website can be found [here](https://project3-python-battleship.herokuap
 ### This allows for the creation of different texts and font sizes
 ### In this program it enables the creation of the game results and a logo.
 * [Back to contents](#table-of-contents)
+***
+
+## Technologies:
+
+* Python
+* Github
+* LucidCharts
+* Heroka
+* Am I Responsive
+
 
 ## Deployment
 
@@ -132,5 +142,18 @@ you only need to make 1 addition. (Key = PORT, VALUE = 8000)
 9. Choose 'Enable Automatic Deploy'
 (This allows Heroku to rebuild the app after every ammendment)
 10. Click deploy to make app and then click 'view'
+* [Back to contents](#table-of-contents)
+
+## Credits
+  * ###  Code and Tutorials 
+  * [Love Sandwiches](https://learn.codeinstitute.net/)
+    * From the code structure to the deployment.. 
+  * [Knowledge Mavens (Youtube)](https://www.youtube.com/watch?v=tF1WRCrd_HQ)
+    * Mainly for the structure of the game area.   
+     ***   
+## Acknowledgements:
+  * I would like to thank my mentor Ronan McClelland for his guidence throughout this project.
+  * As this was my first Python project and, I would like to thank all in the Slack community who helped me in such areas as
+   when I had many errors and pointed me in the right direction.
 * [Back to contents](#table-of-contents)
 
