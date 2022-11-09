@@ -4,10 +4,7 @@
 * [User stories](#user-stories)
     * [First Time Visitor Goals](#first-time-visitor-goals)
     * [Returning Visitor Goals](#returning-visitor-goals)
-    
-* [Site Structure](#site-structure)  
-* [Design](#design)    
-* [Flowchart](#Flowchart)
+* [Flowchart](#flowchart)   
 * [Features](#features)    
 * [Technologies](#technologies)
 * [Testing](#testing)
@@ -49,6 +46,30 @@ The live website can be found [here](https://project3-python-battleship.herokuap
 * [Back to contents](#table-of-contents)
 ***
 
-## Site Structure
+## Flowchart
 
 ![Website Mock Up](docs/flowchart.png)
+
+* [Back to contents](#table-of-contents)
+*** 
+
+## Features
+### Start Game Screen:
+#### The screen that appears at the start of the game.
+![Start Screen](docs/start-screen.png)<br>
+### Main Game Screen:
+#### The screen that shows the main game area.
+![Start Screen](docs/main-game-area.png)<br>
+### Scoring Game Screen:
+#### The screen that shows the scores & the turns left.
+![Start Screen](docs/mid-game-score.png)<br>
+
+### Winner Game Screen:
+#### The screen that that shows you have won the game.
+![Start Screen](docs/win-endgame.png)<br>
+### Losers Game Screen:
+#### The screen that that shows you have lost the game.
+![Start Screen](docs/lose-endgame.png)<br>
+### Draw Game Screen:
+#### The screen that appears that you have drawn with the computer.
+![Start Screen](docs/draw-endgame.png)<br>

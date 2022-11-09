@@ -38,6 +38,7 @@ def introduction():
     print_slow("*-----Instructions-----*\n")
     print_slow("It's you againest the computer.\n")
     print_slow("Who can sink the most ships.\n")
+    print_slow("You have 5 turns.\n")
     print_slow("First choose the number of ships for the battle.\n\n")
 
 
