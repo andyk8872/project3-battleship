@@ -1,13 +1,13 @@
 ## [Table of Contents](#table-of-contents)
 * [Purpose](#purpose)
- * [User Experience Design (UX)](#user-experience-design)
-  * [User stories](#user-stories)
+* [Battlesphip Website](#battleship-website) 
+* [User stories](#user-stories)
     * [First Time Visitor Goals](#first-time-visitor-goals)
     * [Returning Visitor Goals](#returning-visitor-goals)
-    * [Frequent Visitor Goals](#frequent-visitor-goals)
-  * [Structure](#structure)  
-  * [Design](#design)    
-    * [Wireframes](#wireframes)
+    
+* [Site Structure](#site-structure)  
+* [Design](#design)    
+* [Flowchart](#Flowchart)
 * [Features](#features)    
 * [Technologies](#technologies)
 * [Testing](#testing)
@@ -30,3 +30,25 @@ The live website can be found [here](https://project3-python-battleship.herokuap
 
 ## Battleship Website
 
+![Website Mock Up](docs/responsive.png)
+
+* [Back to contents](#table-of-contents)
+*** 
+
+## User stories
+
+#### First Time Visitor Goals
+* As a First Time user, I want to easily understand the main purpose of the site.
+* As a first time user, I want to be able to play the game and participate in the experience.
+* As a First Time user, I want to view the website and content clearly on my mobile device.
+* As a first time user, I want to know when I have make an incorrect input.
+#### Returning Visitor Goals
+* As a Returning user, I want to be able to begin the game quickly.
+* As a Frequent user, I want to check to see if there are any changes.
+
+* [Back to contents](#table-of-contents)
+***
+
+## Site Structure
+
+![Website Mock Up](docs/flowchart.png)
