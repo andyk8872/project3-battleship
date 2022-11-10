@@ -13,6 +13,7 @@
   * [Manual Testing](#manual-testing)
   * [Bugs](#bugs)
 * [Deployment](#deployment)
+* [Future featues](#future-features)
 * [Credits](#credits)
    * [Code and Tutorials](#code-and-tutorials)
 * [Acknoledgements](#acknowledgements)   
@@ -40,7 +41,7 @@ The live website can be found [here](https://project3-python-battleship.herokuap
 #### First Time Visitor Goals
 * As a First Time user, I want to easily understand the main purpose of the site.
 * As a first time user, I want to be able to play the game and participate in the experience.
-* As a First Time user, I want to view the website and content clearly on my mobile device.
+* As a First Time user, I want to view the website and content clearly all devices.
 * As a first time user, I want to know when I have make an incorrect input.
 #### Returning Visitor Goals
 * As a Returning user, I want to be able to begin the game quickly.
@@ -120,11 +121,17 @@ The live website can be found [here](https://project3-python-battleship.herokuap
 
 ## Technologies:
 
+* Gitpod
+  * Provides a Theia IDE using VS Code as editor.
 * Python
+  * The programming language used in this app.
 * Github
 * LucidCharts
+  * The flow charts were compiled using lucid charts.
 * Heroka
-* Am I Responsive
+  * The app was deployed onto the Heroku platform.
+* Am I Responsive.
+  * This site was used to show the responsive state of the app.
 
 
 ## Deployment
@@ -143,6 +150,13 @@ you only need to make 1 addition. (Key = PORT, VALUE = 8000)
 (This allows Heroku to rebuild the app after every ammendment)
 10. Click deploy to make app and then click 'view'
 * [Back to contents](#table-of-contents)
+***
+
+## Future Features
+  * To enable the user to have different size ships.
+  * To enable the ships to be horizontal or vertical.
+  * To enable a 2 player game. (Not just againest the computer.) 
+  ***
 
 ## Credits
   * ###  Code and Tutorials 
@@ -153,7 +167,6 @@ you only need to make 1 addition. (Key = PORT, VALUE = 8000)
      ***   
 ## Acknowledgements:
   * I would like to thank my mentor Ronan McClelland for his guidence throughout this project.
-  * As this was my first Python project and, I would like to thank all in the Slack community who helped me in such areas as
-   when I had many errors and pointed me in the right direction.
+  * As this was my first Python project and, I would like to thank all in the Slack community who helped when I had many errors and pointed me in the right direction.
 * [Back to contents](#table-of-contents)
 
