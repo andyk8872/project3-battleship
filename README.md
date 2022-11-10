@@ -10,6 +10,7 @@
 * [Libraries and Modules Used](#libraries-and-modules-used)    
 * [Technologies](#technologies)
 * [Testing](#testing)
+  * [Validator Testing](#validator-testing)
   * [Manual Testing](#manual-testing)
   * [Bugs](#bugs)
 * [Deployment](#deployment)
@@ -132,6 +133,31 @@ The live website can be found [here](https://project3-python-battleship.herokuap
   * The app was deployed onto the Heroku platform.
 * Am I Responsive.
   * This site was used to show the responsive state of the app.
+  ***
+
+## Testing
+### Validator Testing
+* I tested the app using the PEP8 validator through gitpod, this was achieved by: 1. **pip3 install pycodestyle** 2. **Python: Select Linter**
+and 3. Selecting **pycodestyle**. The PEP8 erorrs would then be underlined in red and also listed in **Problems tab**
+  * As you can see from the below screenshot there is no errors. The 3 warnings below come with the code intitute template that I used and this does not affect anything.<br><br>
+  ![PEP8 Testing](docs/linter.png)
+  * [Back to contents](#table-of-contents)
+***
+
+### Manual Testing
+* #### These manual tests were used to test the users input of: 'Number of Ships'.
+#### Any other input other than 11,12,13,14,15 should result in a 'FAIL'. 
+![Number of ships](docs/no_of_ships.png)
+* #### These manual tests were used to test the users input of: 'ROWS & COLUMNS'.
+#### Any other input other than 1,2,3,4,5 should result in a 'FAIL'.
+![Rows and Columns](docs/row_column.png)
+* #### This is the display the user sees at the end of the game.
+![Play Again](docs/play_again.png)
+***
+* #### This is the display the user sees when they input a wrong play again key.
+![Play Again Error](docs/replay_no_error.png)
+* [Back to contents](#table-of-contents)
+***
 
 
 ## Deployment
