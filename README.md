@@ -159,6 +159,13 @@ and 3. Selecting **pycodestyle**. The PEP8 erorrs would then be underlined in re
 * [Back to contents](#table-of-contents)
 ***
 
+## Bugs
+* #### When the user choose to play again the game area would not reset/clear.
+  * The fix this a Global Variable was put in the 'play_again' function and the variables cleared.
+* #### Various PEP8 issues:
+  * Whitespacing, lines too long, missing docstrings. (All resolved)  
+***
+
 
 ## Deployment
 
