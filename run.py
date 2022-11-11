@@ -39,6 +39,7 @@ def introduction():
     print_slow("It's you againest the computer.\n")
     print_slow("Who can sink the most ships.\n")
     print_slow("You have 5 turns.\n")
+    print_slow("X = Players Ship, M = MiISS, H = HIT.\n")
     print_slow("First choose the number of ships for the battle.\n\n")
 
 
@@ -200,7 +201,7 @@ def main(player, computer):
             print("You already guessed that\n")
         elif comp_unseen_grid[row][column] == 'X':
             print('Congratulations you have hit a battleship\n')
-            comp_seen_grid[row][column] = 'X'
+            comp_seen_grid[row][column] = 'H'
             turns -= 1
             player_score += 1
             print(f"PlayerScore: {player_score}")
