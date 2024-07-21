@@ -1,4 +1,4 @@
-## [Table of Contents](#table-of-contents)
+## [Table of Contents:](#table-of-contents)
 * [Purpose](#purpose)
 * [Battlesphip Website](#battleship-website) 
 * [User stories](#user-stories)
